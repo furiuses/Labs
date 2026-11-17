@@ -1,0 +1,9 @@
+PREFIX pc: <https://example.org/pois/lr4/pc.owl#>
+SELECT DISTINCT ?board
+WHERE {
+  pc:AMD_Ryzen_5_7600 pc:требует_сокет ?socket .
+  pc:Учебный_DIMM_DDR5 pc:имеет_стандарт ?memory .
+  ?board pc:имеет_сокет ?socket ;
+         pc:поддерживает_память ?memory .
+}
+ORDER BY ?board
