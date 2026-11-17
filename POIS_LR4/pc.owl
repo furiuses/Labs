@@ -64,6 +64,36 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
+<owl:DatatypeProperty rdf:about="#число_ядер">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Процессор"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#число_потоков">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Процессор"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ёмкость_диска_ГБ">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Накопитель"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#видеопамять_ГБ">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Видеокарта"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#мощность_Вт">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Блок_питания"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
 <owl:Class rdf:about="#Компонент">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:comment xml:lang="ru">Модель аппаратного изделия, которое можно включить в конфигурацию ПК.</rdfs:comment>
@@ -231,6 +261,14 @@
   <rdfs:comment xml:lang="ru">Описание одного варианта подбора компонентов компьютера.</rdfs:comment>
 </owl:Class>
 
+<owl:NamedIndividual rdf:about="#AM4">
+  <rdf:type rdf:resource="#Тип_сокета"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LGA1200">
+  <rdf:type rdf:resource="#Тип_сокета"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#AM5">
   <rdf:type rdf:resource="#Тип_сокета"/>
 </owl:NamedIndividual>
@@ -291,9 +329,46 @@
   <имеет_формат rdf:resource="#MicroATX"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#AMD_Ryzen_5_7600">
-  <rdf:type rdf:resource="#Настольный_процессор"/>
-  <требует_сокет rdf:resource="#AM5"/>
+<owl:NamedIndividual rdf:about="#MSI_B450_TOMAHAWK_MAX">
+  <rdf:type rdf:resource="#Плата_ATX"/>
+  <имеет_сокет rdf:resource="#AM4"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#ATX"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MSI_B550_A_PRO">
+  <rdf:type rdf:resource="#Плата_ATX"/>
+  <имеет_сокет rdf:resource="#AM4"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#ATX"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MSI_MAG_B550M_MORTAR">
+  <rdf:type rdf:resource="#Плата_MicroATX"/>
+  <имеет_сокет rdf:resource="#AM4"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#MicroATX"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MSI_Z490_A_PRO">
+  <rdf:type rdf:resource="#Плата_ATX"/>
+  <имеет_сокет rdf:resource="#LGA1200"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#ATX"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MSI_B560M_PRO_VDH">
+  <rdf:type rdf:resource="#Плата_MicroATX"/>
+  <имеет_сокет rdf:resource="#LGA1200"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#MicroATX"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MSI_PRO_B660M_A_DDR4">
+  <rdf:type rdf:resource="#Плата_MicroATX"/>
+  <имеет_сокет rdf:resource="#LGA1700"/>
+  <поддерживает_память rdf:resource="#DDR4"/>
+  <имеет_формат rdf:resource="#MicroATX"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Учебный_DIMM_DDR4">
@@ -318,6 +393,272 @@
   <использует_интерфейс rdf:resource="#SATA_6Gb_s"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_5_3600">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM4"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_5_5600">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM4"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_7_5700X">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM4"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_9_5900X">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM4"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_5_7600">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM5"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_7_7700">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM5"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_7_7800X3D">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM5"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AMD_Ryzen_9_7900">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#AM5"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i3_10100">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1200"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i5_10400">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1200"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i7_11700">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1200"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i3_12100">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1700"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i5_12400">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1700"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i5_13600K">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1700"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Intel_Core_i7_13700K">
+  <rdf:type rdf:resource="#Настольный_процессор"/>
+  <требует_сокет rdf:resource="#LGA1700"/>
+  <число_ядер rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</число_ядер>
+  <число_потоков rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</число_потоков>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Kingston_KVR26N19S8_8">
+  <rdf:type rdf:resource="#Модуль_DDR4"/>
+  <имеет_стандарт rdf:resource="#DDR4"/>
+  <объём_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</объём_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Kingston_KVR32N22S8_16">
+  <rdf:type rdf:resource="#Модуль_DDR4"/>
+  <имеет_стандарт rdf:resource="#DDR4"/>
+  <объём_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</объём_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Crucial_CT32G4DFD832A">
+  <rdf:type rdf:resource="#Модуль_DDR4"/>
+  <имеет_стандарт rdf:resource="#DDR4"/>
+  <объём_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</объём_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Crucial_CT16G48C40U5">
+  <rdf:type rdf:resource="#Модуль_DDR5"/>
+  <имеет_стандарт rdf:resource="#DDR5"/>
+  <объём_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</объём_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Crucial_CT32G48C40U5">
+  <rdf:type rdf:resource="#Модуль_DDR5"/>
+  <имеет_стандарт rdf:resource="#DDR5"/>
+  <объём_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</объём_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Samsung_870_EVO_1TB">
+  <rdf:type rdf:resource="#SATA_SSD"/>
+  <использует_интерфейс rdf:resource="#SATA_6Gb_s"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Crucial_MX500_500GB">
+  <rdf:type rdf:resource="#SATA_SSD"/>
+  <использует_интерфейс rdf:resource="#SATA_6Gb_s"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Samsung_980_PRO_1TB">
+  <rdf:type rdf:resource="#NVMe_SSD"/>
+  <использует_интерфейс rdf:resource="#PCIe_4_x4"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#WD_Black_SN850X_2TB">
+  <rdf:type rdf:resource="#NVMe_SSD"/>
+  <использует_интерфейс rdf:resource="#PCIe_4_x4"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Seagate_BarraCuda_ST2000DM008">
+  <rdf:type rdf:resource="#Жёсткий_диск"/>
+  <использует_интерфейс rdf:resource="#SATA_6Gb_s"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#WD_Blue_WD10EZEX">
+  <rdf:type rdf:resource="#Жёсткий_диск"/>
+  <использует_интерфейс rdf:resource="#SATA_6Gb_s"/>
+  <ёмкость_диска_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</ёмкость_диска_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GeForce_RTX_3060_12GB">
+  <rdf:type rdf:resource="#Видеокарта"/>
+  <видеопамять_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</видеопамять_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GeForce_RTX_4060_8GB">
+  <rdf:type rdf:resource="#Видеокарта"/>
+  <видеопамять_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</видеопамять_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Radeon_RX_6600_8GB">
+  <rdf:type rdf:resource="#Видеокарта"/>
+  <видеопамять_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</видеопамять_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Radeon_RX_7800_XT_16GB">
+  <rdf:type rdf:resource="#Видеокарта"/>
+  <видеопамять_ГБ rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</видеопамять_ГБ>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Corsair_RM650x">
+  <rdf:type rdf:resource="#Блок_питания"/>
+  <мощность_Вт rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">650</мощность_Вт>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Corsair_RM750x">
+  <rdf:type rdf:resource="#Блок_питания"/>
+  <мощность_Вт rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">750</мощность_Вт>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Corsair_RM850x">
+  <rdf:type rdf:resource="#Блок_питания"/>
+  <мощность_Вт rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">850</мощность_Вт>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Corsair_4000D_Airflow">
+  <rdf:type rdf:resource="#Корпус_MidTower"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fractal_Design_Pop_Air">
+  <rdf:type rdf:resource="#Корпус_MidTower"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#NZXT_H5_Flow">
+  <rdf:type rdf:resource="#Корпус_MidTower"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DeepCool_AK400">
+  <rdf:type rdf:resource="#Воздушный_кулер"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Noctua_NH_U12S_redux">
+  <rdf:type rdf:resource="#Воздушный_кулер"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Arctic_Liquid_Freezer_III_240">
+  <rdf:type rdf:resource="#Жидкостная_СО"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Игровая_AM4">
+  <rdf:type rdf:resource="#Конфигурация_ПК"/>
+  <включает rdf:resource="#AMD_Ryzen_5_5600"/>
+  <включает rdf:resource="#MSI_B550_A_PRO"/>
+  <включает rdf:resource="#Crucial_CT32G4DFD832A"/>
+  <включает rdf:resource="#WD_Black_SN850X_2TB"/>
+  <включает rdf:resource="#Radeon_RX_6600_8GB"/>
+  <включает rdf:resource="#Corsair_RM650x"/>
+  <включает rdf:resource="#DeepCool_AK400"/>
+  <включает rdf:resource="#Fractal_Design_Pop_Air"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Рабочая_Intel">
+  <rdf:type rdf:resource="#Конфигурация_ПК"/>
+  <включает rdf:resource="#Intel_Core_i5_12400"/>
+  <включает rdf:resource="#MSI_PRO_B760M_A_WIFI"/>
+  <включает rdf:resource="#Crucial_CT32G48C40U5"/>
+  <включает rdf:resource="#Samsung_980_PRO_1TB"/>
+  <включает rdf:resource="#GeForce_RTX_3060_12GB"/>
+  <включает rdf:resource="#Corsair_RM750x"/>
+  <включает rdf:resource="#Noctua_NH_U12S_redux"/>
+  <включает rdf:resource="#Corsair_4000D_Airflow"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Игровая_AM5">
+  <rdf:type rdf:resource="#Конфигурация_ПК"/>
+  <включает rdf:resource="#AMD_Ryzen_7_7800X3D"/>
+  <включает rdf:resource="#MSI_MAG_B650_TOMAHAWK_WIFI"/>
+  <включает rdf:resource="#Crucial_CT32G48C40U5"/>
+  <включает rdf:resource="#WD_Black_SN850X_2TB"/>
+  <включает rdf:resource="#Radeon_RX_7800_XT_16GB"/>
+  <включает rdf:resource="#Corsair_RM850x"/>
+  <включает rdf:resource="#Arctic_Liquid_Freezer_III_240"/>
+  <включает rdf:resource="#NZXT_H5_Flow"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#Учебная_сборка">
   <rdf:type rdf:resource="#Конфигурация_ПК"/>
   <включает rdf:resource="#MSI_PRO_B650M_A_WIFI"/>
@@ -328,6 +669,8 @@
 
 <owl:AllDifferent>
   <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#AM4"/>
+    <rdf:Description rdf:about="#LGA1200"/>
     <rdf:Description rdf:about="#AM5"/>
     <rdf:Description rdf:about="#LGA1700"/>
     <rdf:Description rdf:about="#DDR5"/>
@@ -340,11 +683,58 @@
     <rdf:Description rdf:about="#MSI_PRO_B650M_A_WIFI"/>
     <rdf:Description rdf:about="#MSI_PRO_B760M_A_WIFI"/>
     <rdf:Description rdf:about="#MSI_PRO_B760M_A_WIFI_DDR4"/>
-    <rdf:Description rdf:about="#AMD_Ryzen_5_7600"/>
+    <rdf:Description rdf:about="#MSI_B450_TOMAHAWK_MAX"/>
+    <rdf:Description rdf:about="#MSI_B550_A_PRO"/>
+    <rdf:Description rdf:about="#MSI_MAG_B550M_MORTAR"/>
+    <rdf:Description rdf:about="#MSI_Z490_A_PRO"/>
+    <rdf:Description rdf:about="#MSI_B560M_PRO_VDH"/>
+    <rdf:Description rdf:about="#MSI_PRO_B660M_A_DDR4"/>
     <rdf:Description rdf:about="#Учебный_DIMM_DDR4"/>
     <rdf:Description rdf:about="#Учебный_DIMM_DDR5"/>
     <rdf:Description rdf:about="#Учебный_SSD_M2"/>
     <rdf:Description rdf:about="#Учебный_SSD_25"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_5_3600"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_5_5600"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_7_5700X"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_9_5900X"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_5_7600"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_7_7700"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_7_7800X3D"/>
+    <rdf:Description rdf:about="#AMD_Ryzen_9_7900"/>
+    <rdf:Description rdf:about="#Intel_Core_i3_10100"/>
+    <rdf:Description rdf:about="#Intel_Core_i5_10400"/>
+    <rdf:Description rdf:about="#Intel_Core_i7_11700"/>
+    <rdf:Description rdf:about="#Intel_Core_i3_12100"/>
+    <rdf:Description rdf:about="#Intel_Core_i5_12400"/>
+    <rdf:Description rdf:about="#Intel_Core_i5_13600K"/>
+    <rdf:Description rdf:about="#Intel_Core_i7_13700K"/>
+    <rdf:Description rdf:about="#Kingston_KVR26N19S8_8"/>
+    <rdf:Description rdf:about="#Kingston_KVR32N22S8_16"/>
+    <rdf:Description rdf:about="#Crucial_CT32G4DFD832A"/>
+    <rdf:Description rdf:about="#Crucial_CT16G48C40U5"/>
+    <rdf:Description rdf:about="#Crucial_CT32G48C40U5"/>
+    <rdf:Description rdf:about="#Samsung_870_EVO_1TB"/>
+    <rdf:Description rdf:about="#Crucial_MX500_500GB"/>
+    <rdf:Description rdf:about="#Samsung_980_PRO_1TB"/>
+    <rdf:Description rdf:about="#WD_Black_SN850X_2TB"/>
+    <rdf:Description rdf:about="#Seagate_BarraCuda_ST2000DM008"/>
+    <rdf:Description rdf:about="#WD_Blue_WD10EZEX"/>
+    <rdf:Description rdf:about="#GeForce_RTX_3060_12GB"/>
+    <rdf:Description rdf:about="#GeForce_RTX_4060_8GB"/>
+    <rdf:Description rdf:about="#Radeon_RX_6600_8GB"/>
+    <rdf:Description rdf:about="#Radeon_RX_7800_XT_16GB"/>
+    <rdf:Description rdf:about="#Corsair_RM650x"/>
+    <rdf:Description rdf:about="#Corsair_RM750x"/>
+    <rdf:Description rdf:about="#Corsair_RM850x"/>
+    <rdf:Description rdf:about="#Corsair_4000D_Airflow"/>
+    <rdf:Description rdf:about="#Fractal_Design_Pop_Air"/>
+    <rdf:Description rdf:about="#NZXT_H5_Flow"/>
+    <rdf:Description rdf:about="#DeepCool_AK400"/>
+    <rdf:Description rdf:about="#Noctua_NH_U12S_redux"/>
+    <rdf:Description rdf:about="#Arctic_Liquid_Freezer_III_240"/>
+    <rdf:Description rdf:about="#Игровая_AM4"/>
+    <rdf:Description rdf:about="#Рабочая_Intel"/>
+    <rdf:Description rdf:about="#Игровая_AM5"/>
     <rdf:Description rdf:about="#Учебная_сборка"/>
   </owl:distinctMembers>
 </owl:AllDifferent>

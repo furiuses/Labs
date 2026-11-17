@@ -1,0 +1,10 @@
+PREFIX pc: <https://example.org/pois/lr4/pc.owl#>
+SELECT ?cpu ?socket ?cores ?threads (COUNT(DISTINCT ?board) AS ?boardsWithSocket)
+WHERE {
+  ?cpu pc:требует_сокет ?socket ;
+       pc:число_ядер ?cores ;
+       pc:число_потоков ?threads .
+  OPTIONAL { ?board pc:имеет_сокет ?socket . }
+}
+GROUP BY ?cpu ?socket ?cores ?threads
+ORDER BY ?socket DESC(?cores) ?cpu
